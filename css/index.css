@@ -133,3 +133,31 @@ nav a{
 /*nav a:hover{
     background: rgb(195, 51, 231);
 } */
+
+/*domain*/
+
+.dm{
+    text-align: center;
+    margin-bottom: 50px;
+}
+.carousel{
+    margin: auto;
+    width: 70%;
+}
+.d-one{
+    width: 250px;
+    height: 300px;
+    width: 50%;
+    float: left;
+}
+.d-two{
+    height: 300px;
+    width: 400px;
+    width: 50%;
+    float: left;
+}
+.dm-text{
+    text-align: right;
+    position: relative;
+    top: 100px;
+}

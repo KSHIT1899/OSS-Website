@@ -21,7 +21,7 @@
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
               <a class="nav-link active" aria-current="page" href="#">Home</a>
-              <a class="nav-link" href="#">Domains</a>
+              <a class="nav-link" href="#" id="curr">Domains</a>
               <a class="nav-link" href="#">Projects</a>
               <a class="nav-link" href="#">Events</a>
               <a class="nav-link" href="#">Faculty</a>
@@ -47,28 +47,56 @@
       <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active" data-bs-interval="2000">
-              <img src="img/appdev.png" class="d-one d-block" alt="App Dev">
-              <h1 class="dm-text">App Development</h1>
+             <img src="img/app.png" class="domainimg" alt="App Development">
           </div>
           <div class="carousel-item" data-bs-interval="2000">
-            <img src="img/webdev.png" class="d-one d-block" alt="...">
-            <h1 class="dm-text">Web Development</h1>
+            <img src="img/web.png" class="domainimg" alt="App Development">
           </div>
           <div class="carousel-item" data-bs-interval="2000">
-            <img src="img/macl.png" class="d-two d-block" alt="...">
-            <h1 class="dm-text">Machine Learning</h1>
+            <img src="img/mach.png" class="domainimg" alt="App Development">
           </div>
           <div class="carousel-item" data-bs-interval="2000">
-            <img src="img/cybers.png" class="d-one d-block" alt="...">
-            <h1 class="dm-text">Cyber Security</h1>
+            <img src="img/cyb.png" class="domainimg" alt="App Development">
           </div>
           <div class="carousel-item" data-bs-interval="2000">
-            <img src="img/opens.png" class="d-two d-block" alt="...">
-            <h1 class="dm-text">Open Source</h1>
+            <img src="img/webd.png" class="domainimg" alt="App Development">
           </div>
           <div class="carousel-item" data-bs-interval="2000">
-            <img src="img/webd.png" class="d-two d-block" alt="...">
-            <h1 class="dm-text">Web Design</h1>
+            <img src="img/open.png" class="domainimg" alt="App Development">
+          </div>
         </div>
+      </div>
+      <script>
+        function change()
+        {
+          if(x.matches)
+          {
+            const images=document.getElementsByClassName("domainimg"); 
+            for(let item of images)
+            {
+              let s=item.getAttribute("src");
+              let newsrc= s.slice(0,s.length-4)+"2.png";
+              console.log(newsrc);
+              item.setAttribute("src",newsrc);
+            }
+          }
+          else
+          {
+            const images=document.getElementsByClassName("domainimg");
+            for(let item of images)
+            {
+              let s=item.getAttribute("src");
+              if(s.slice(s.length-5,)!=="2.png")
+              continue;
+              let newsrc= s.slice(0,s.length-5)+".png";
+              console.log(newsrc);
+              item.setAttribute("src",newsrc);
+            }
+          }
+        } 
+        var x=window.matchMedia("(max-width: 800px)");
+        change(x);
+        x.addListener(change);
+      </script>
 </body>
 </html>

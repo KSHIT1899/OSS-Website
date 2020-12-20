@@ -53,6 +53,7 @@ nav a{
     font-weight:bold;
     font-size: 2.5vw;
     color: rgb(101, 3, 114);
+    text-shadow:2px 3px 5px #11111150;
 }
 .about p{
     font-weight:normal;
@@ -194,5 +195,80 @@ nav a{
 {
     .carousel-item img{
         width:85%;
+    }
+}
+/*Events*/
+.events{
+    text-align:center;
+    margin-top:70px;
+    position:relative;
+    height:70vh;
+}
+.eventheading{
+    margin-bottom: 20vh;
+}
+#eventimg{
+    width:30%;
+    height:30%;
+    transition:400ms ease;
+    border-radius: 12px;
+    border:1px solid #11111180;
+    box-shadow:4px 4px 5px #11111160;
+}
+.witharrows-outer{
+    position:relative;
+    height:70vh;
+}
+.event-main{
+    animation: go-on 1s alternate infinite;
+}
+@keyframes go-on{
+    from{
+        transform:scale(1);
+    }
+    to{
+        transform:scale(1.2);
+    }
+}
+i{
+    width:40px;
+    height:40px;
+    font-size:40px;
+    background:#aa9902;
+    position:absolute;
+}
+.fa-arrow-circle-left{
+    top:45%;
+    left:10%;
+    transform:translateY(-50%);
+}
+.fa-arrow-circle-right{
+    top:45%;
+    right:10%;
+    transform:translateY(-50%);
+}
+@media screen and (max-width:950px)
+{
+    #eventimg{
+        width:40%;
+        height:40%;
+    }
+}
+@media screen and (max-width:600px)
+{
+    .fa-arrow-circle-right{
+        right:5%;
+    }
+    .fa-arrow-circle-left{
+        left:5%;
+    }
+}
+@media screen and (max-width:450px)
+{
+    .fa-arrow-circle-right{
+        right:2%;
+    }
+    .fa-arrow-circle-left{
+        left:2%;
     }
 }

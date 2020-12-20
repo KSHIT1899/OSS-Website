@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/index.css">
+    <script src="https://kit.fontawesome.com/2f57eae505.js" crossorigin="anonymous"></script>
     <title>OSS R&D</title>
 </head>
 <body>
@@ -50,21 +51,30 @@
              <img src="img/app.png" class="domainimg" alt="App Development">
           </div>
           <div class="carousel-item" data-bs-interval="2000">
-            <img src="img/web.png" class="domainimg" alt="App Development">
+            <img src="img/web.png" class="domainimg" alt="web Development">
           </div>
           <div class="carousel-item" data-bs-interval="2000">
-            <img src="img/mach.png" class="domainimg" alt="App Development">
+            <img src="img/mach.png" class="domainimg" alt="Machine Learning">
           </div>
           <div class="carousel-item" data-bs-interval="2000">
-            <img src="img/cyb.png" class="domainimg" alt="App Development">
+            <img src="img/cyb.png" class="domainimg" alt="Cyber Security">
           </div>
           <div class="carousel-item" data-bs-interval="2000">
-            <img src="img/webd.png" class="domainimg" alt="App Development">
+            <img src="img/webd.png" class="domainimg" alt="Web Design">
           </div>
           <div class="carousel-item" data-bs-interval="2000">
-            <img src="img/open.png" class="domainimg" alt="App Development">
+            <img src="img/open.png" class="domainimg" alt="Open Source">
           </div>
         </div>
+      </div>
+      <!--events-->
+      <div class="events">
+        <h1 class="eventheading">Projects</h1>
+          <i class="fa fa-arrow-circle-left"></i>
+          <i class="fa fa-arrow-circle-right"></i>
+          <div class="event-main">
+            <img src="img/project1.png" id="eventimg" >
+          </div>
       </div>
       <script>
         function change()
@@ -97,6 +107,53 @@
         var x=window.matchMedia("(max-width: 800px)");
         change(x);
         x.addListener(change);
+        document.addEventListener("keydown",imageswitch);
+        var eventimg=document.getElementById("eventimg");
+        var projectvar=0;
+        function imageswitch(e)
+        {
+          e.preventDefault();
+          //console.log(e.key);
+          if(e.key==="ArrowRight")
+          {
+            imageforward();
+          }
+          else if(e.key==="ArrowLeft")
+          {
+            imagebackward();
+        }
+        function imageforward()
+        {
+            eventimg.style.transform= "rotateZ(360deg)";
+            eventimg.style.width="0";
+            eventimg.style.height="0";
+            setTimeout(big,400);
+            function big(){
+              projectvar=(projectvar+1)%6;
+              eventimg.setAttribute("src","img/project" + (projectvar+1) + ".png");
+              eventimg.style.width="40%";
+              eventimg.style.height="40%";
+              eventimg.style.transform= "rotateZ(0deg)";
+            } 
+        }
+        function imagebackward()
+        {
+            eventimg.style.width="0";
+            eventimg.style.height="0";
+            eventimg.style.transform= "rotateZ(-360deg)";
+            setTimeout(small,400);
+            function small(){
+              if(projectvar==0)
+              projectvar=5;
+              else
+              projectvar=(projectvar-1)%6;
+              eventimg.setAttribute("src","img/project" + (projectvar+1) + ".png");
+              eventimg.style.width="40%";
+              eventimg.style.height="40%";
+              eventimg.style.transform= "rotateZ(0deg)";
+            } 
+          }
+        }
       </script>
 </body>
 </html>

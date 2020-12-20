@@ -12,7 +12,7 @@
     <script src="https://kit.fontawesome.com/2f57eae505.js" crossorigin="anonymous"></script>
     <title>OSS R&D</title>
 </head>
-<body>
+<body id="body">
   <div class="header">
     <img class="navlogo" src="img/osslogo.png" alt="logo">
     <nav class="navbar navbar-expand-lg navbar-light">
@@ -72,13 +72,88 @@
       <!--events-->
       <div class="events">
         <h1 class="eventheading">Projects</h1>
-          <i class="fa fa-arrow-circle-left"></i>
-          <i class="fa fa-arrow-circle-right"></i>
+          <i class="fa fa-arrow-circle-left" id="leftarr"></i>
+          <i class="fa fa-arrow-circle-right" id="rightarr"></i>
           <div class="event-main">
             <img src="img/project1.png" id="eventimg" >
           </div>
       </div>
-      <script>
+        <!--Events-->
+        <h1 class="evhead">Events</h1>
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img class="even-t" src="img/1.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="even-t" src="img/2.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="even-t" src="img/3.png" alt=""></div>
+            <div class="swiper-slide"><img class="even-t" src="img/4.jpg" alt=""></div>
+            <div class="swiper-slide"><img class="even-t" src="img/5.png" alt=""></div>
+            <div class="swiper-slide"><img class="even-t" src="img/7.jpg" alt=""></div>
+          </div>
+          <!-- Add Pagination -->
+          <div class="swiper-pagination"></div>
+        </div>
+        <!--Contact Us-->
+        <Section class="contact-us">
+         <div class="c-contain">
+           <div class="cont">
+             <div class="mail">
+              <h1>Contact</h1>
+               <h4><i class="fas fa-envelope"></i> &nbsp;xyz@gmail.com</h4>
+               <h4><i class="fas fa-mobile-alt"></i> &nbsp; 1234567890</h4>
+               <h4><i class="fas fa-map-marker-alt"></i> &nbsp; Team OSS, Ajay Kumar Garg EC</h4>
+              </div>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.467007802244!2d77.49981541508355!3d28.675673582400844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cf30885b1e2a5%3A0x9983675e24c6638b!2sAKGEC%3A%20Ajay%20Kumar%20Garg%20Engineering%20College%2C%20Ghaziabad!5e0!3m2!1sen!2sin!4v1608443299774!5m2!1sen!2sin" width="500" height="200" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+              <div class="icon">
+                <i class="fab fa-facebook-square fa-3x"></i>   
+                <i class="fab fa-linkedin fa-3x"></i>   
+                <i class="fab fa-instagram-square fa-3x"></i> 
+              </div>   
+            </div>
+            <div class="cont-1">
+              <h1 class="text-center">CONTACT US</h1>
+              <form action="" class="form">
+                <input type="text" placeholder="Name"><br>
+                 <input type="text" placeholder="Contact"><br>
+                 <input type="mail" placeholder="Email"><br>
+                 <input type="text" placeholder="Message"><br>
+                 <button>Submit</button>
+              </form>
+            </div>
+         </div>
+        </Section>
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script>
+          var fun1= function imagebackward(){
+            eventimg.style.width="0";
+            eventimg.style.height="0";
+            eventimg.style.transform= "rotateZ(-360deg)";
+            setTimeout(small,400);
+            function small(){
+              if(projectvar==0)
+              projectvar=5;
+              else
+              projectvar=(projectvar-1)%6;
+              eventimg.setAttribute("src","img/project" + (projectvar+1) + ".png");
+              eventimg.style.width="40%";
+              eventimg.style.height="40%";
+              eventimg.style.transform= "rotateZ(0deg)";
+            } 
+          }
+          var fun2= function imageforward(){
+            eventimg.style.transform= "rotateZ(360deg)";
+            eventimg.style.width="0";
+            eventimg.style.height="0";
+            setTimeout(big,400);
+            function big(){
+              projectvar=(projectvar+1)%6;
+              eventimg.setAttribute("src","img/project" + (projectvar+1) + ".png");
+              eventimg.style.width="40%";
+              eventimg.style.height="40%";
+              eventimg.style.transform= "rotateZ(0deg)";
+            } 
+        };
+        document.getElementById("leftarr").addEventListener('click',fun1);        
+        document.getElementById("rightarr").addEventListener('click',fun2);        
         function change()
         {
           if(x.matches)
@@ -114,8 +189,10 @@
         var projectvar=0;
         function imageswitch(e)
         {
+          if(e.key!=="ArrowLeft"&&e.key!=="ArrowRight")
+          return;
           e.preventDefault();
-          //console.log(e.key);
+          console.log(e.key);
           if(e.key==="ArrowRight")
           {
             imageforward();
@@ -156,22 +233,6 @@
             } 
           }
         }
-      </script>
-        <!--Events-->
-        <div class="swiper-container">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide"><img class="even-t" src="img/1.jpg" alt=""></div>
-            <div class="swiper-slide"><img class="even-t" src="img/2.jpg" alt=""></div>
-            <div class="swiper-slide"><img class="even-t" src="img/3.png" alt=""></div>
-            <div class="swiper-slide"><img class="even-t" src="img/4.jpg" alt=""></div>
-            <div class="swiper-slide"><img class="even-t" src="img/5.png" alt=""></div>
-            <div class="swiper-slide"><img class="even-t" src="img/7.jpg" alt=""></div>
-          </div>
-          <!-- Add Pagination -->
-          <div class="swiper-pagination"></div>
-        </div>
-        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-        <script>
           var swiper = new Swiper('.swiper-container', {
             effect: 'coverflow',
             grabCursor: true,
@@ -194,34 +255,5 @@
             },
           });
         </script>
-        <!--Contact Us-->
-        <Section class="contact-us">
-         <div class="c-contain">
-           <div class="cont">
-             <div class="mail">
-              <h1>Contact</h1>
-               <h4><i class="fas fa-envelope"></i> &nbsp;xyz@gmail.com</h4>
-               <h4><i class="fas fa-mobile-alt"></i> &nbsp; 1234567890</h4>
-               <h4><i class="fas fa-map-marker-alt"></i> &nbsp; Team OSS, Ajay Kumar Garg EC</h4>
-              </div>
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.467007802244!2d77.49981541508355!3d28.675673582400844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cf30885b1e2a5%3A0x9983675e24c6638b!2sAKGEC%3A%20Ajay%20Kumar%20Garg%20Engineering%20College%2C%20Ghaziabad!5e0!3m2!1sen!2sin!4v1608443299774!5m2!1sen!2sin" width="500" height="200" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-              <div class="icon">
-                <i class="fab fa-facebook-square fa-3x"></i>   
-                <i class="fab fa-linkedin fa-3x"></i>   
-                <i class="fab fa-instagram-square fa-3x"></i> 
-              </div>   
-            </div>
-            <div class="cont-1">
-              <h1 class="text-center">CONTACT US</h1>
-              <form action="" class="form">
-                <input type="text" placeholder="Name"><br>
-                 <input type="text" placeholder="Contact"><br>
-                 <input type="mail" placeholder="Email"><br>
-                 <input type="text" placeholder="Message"><br>
-                 <button>Submit</button>
-              </form>
-            </div>
-         </div>
-        </Section>
 </body>
 </html>

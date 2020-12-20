@@ -200,7 +200,7 @@ nav a{
 /*Events*/
 .events{
     text-align:center;
-    margin-top:70px;
+    margin-top:100px;
     position:relative;
     height:70vh;
 }
@@ -208,8 +208,8 @@ nav a{
     margin-bottom: 20vh;
 }
 #eventimg{
-    width:30%;
-    height:30%;
+    width:25%;
+    height:25%;
     transition:400ms ease;
     border-radius: 12px;
     border:1px solid #11111180;
@@ -230,12 +230,16 @@ nav a{
         transform:scale(1.2);
     }
 }
-.event i{
+.events i{
     width:40px;
     height:40px;
     font-size:40px;
-    background:#aa9902;
     position:absolute;
+    z-index:100;
+    color:rgb(92, 92, 255);
+}
+.events i:hover{
+    cursor:pointer;
 }
 .fa-arrow-circle-left{
     top:45%;
@@ -262,6 +266,10 @@ nav a{
     .fa-arrow-circle-left{
         left:5%;
     }
+    #eventimg{
+        width:45%;
+        height:45%;
+    }
 }
 @media screen and (max-width:450px)
 {
@@ -271,10 +279,15 @@ nav a{
     .fa-arrow-circle-left{
         left:2%;
     }
+    #eventimg{
+        width:50%;
+        height:50%;
+    }
 }
 /*events*/
 
 .swiper-container {
+    margin-top:100px;
     width: 100%;
     padding-top: 50px;
     padding-bottom: 200px;
@@ -322,7 +335,14 @@ nav a{
         border-radius:7px;
       }
   }
+.evhead{
+    text-align:center;
+    margin-top:100px;
+}
 /*contact*/
+.contact-us{
+    margin-top:200px;
+}
 .cont{
     width:30%;
     font-family: helvetica;
